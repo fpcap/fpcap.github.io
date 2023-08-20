@@ -7,18 +7,19 @@
     
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
   </head>
   <body>    
     <main>
       <div class="section no-pad-bot" id="index-banner">
         <div class="container">
-          <br><br>
-          <h1 class="header center deep-orange-text">FPCAP</h1>
           <div class="row center">
-            <h5 class="header col s12 light">A fast and lightweight PCAP file reading library</h5>
+            <img class="responsive-img logo" src="images/fpcap_logo.svg">
+            <h5 class="header col s12 light">A fast and lightweight PCAP file reading library written in C++</h5>
           </div>
           <div class="row center">
-            <a href="https://github.com/Schwaggot/mmpr" id="get-started-button" class="btn-large waves-effect waves-light deep-orange">Get Started</a>
+            <a href="https://github.com/fpcap/fpcap" id="get-started-button" class="btn-large waves-effect waves-light fpcap-orange">View on GitHub</a>
           </div>
           <br><br>
     
@@ -27,43 +28,79 @@
     
       <div class="container">
         <div class="section">
-    
-          <!--   Icon Section   -->
           <div class="row">
-            <div class="col s12 m4">
+            <div class="col s12 m3">
               <div class="icon-block">
-                <h2 class="center deep-orange-text"><i class="material-icons">flash_on</i></h2>
-                <h5 class="center">Speeds up development</h5>
-    
-                <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+                <h2 class="center fpcap-orange-text"><i class="medium material-icons">bolt</i></h2>
+                <h5 class="center">Fast packet reading</h5>
+                <p class="light">Focussed on providing the fastest possible network packet reading solution out there, FPCAP outperforms alternatives, including libpcap and PcapPlusPlus. Written entirely in modern C++, FPCAP puts the performance where it matters - in the hands of the users and their big data use-cases.</p>
+              </div>
+            </div>
+
+            <div class="col s12 m3">
+              <div class="icon-block">
+                <h2 class="center fpcap-orange-text"><i class="medium material-icons">memory</i></h2>
+                <h5 class="center">Memory efficient</h5>
+                <p class="light">With great bandwidth comes great memory consumption, but not so for FPCAP. By leveraging built-in OS features like memory-mapped reading, FPCAP reads even the biggest capture files without a hustle. From Raspberry Pis to cloud computing clusters - the sky is the limit.</p>
               </div>
             </div>
     
-            <div class="col s12 m4">
+            <div class="col s12 m3">
               <div class="icon-block">
-                <h2 class="center deep-orange-text"><i class="material-icons">group</i></h2>
-                <h5 class="center">User Experience Focused</h5>
-    
-                <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
+                <h2 class="center fpcap-orange-text"><i class="medium material-icons">engineering</i></h2>
+                <h5 class="center">Easy to integrate</h5>
+                <p class="light">Tired of ever-growing heaps of incompatible software dependencies? FPCAPs zero dependency architecture and modern CMake build environment require only the standard library to build. Optional dependencies, such as compression are bundled and all interfaces follow modern C++ guidelines.</p>
               </div>
-            </div>
-    
-            <div class="col s12 m4">
+            </div>  
+            
+            <div class="col s12 m3">
               <div class="icon-block">
-                <h2 class="center deep-orange-text"><i class="material-icons">settings</i></h2>
-                <h5 class="center">Easy to work with</h5>
-    
-                <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+                <h2 class="center fpcap-orange-text"><i class="medium material-icons">diversity_3</i></h2>
+                <h5 class="center">Open source</h5>
+                <p class="light">At FPCAP we strongly believe in sharing knowledge, including free and open software. Therefore, FPCAP is distributed as an open source software library, without any hidden fees or agenda. Free to use by anyone for any purpose.</p>
               </div>
-            </div>
+            </div>            
           </div>
     
+          <div class="row">
+            <h4>Features</h4>
+            <ul class="collection">
+              <li class="collection-item">Fast and memory-efficient capture file reading via fread and memory-mapping.</li>
+              <li class="collection-item">Reading of PCAP and PcapNG capture file formats (.pcap / .pcapng / .cap) and their block types (including options).</li>              
+              <li class="collection-item">Support for <a href="https://github.com/facebook/zstd">zstd</a> compressed capture files (.pcap.zst / .pcapng.zst).</li>              
+              <li class="collection-item">Cross-plattform support, from Linux, Windows and Apple to x86, ARM and RISC-V, both 32 and 64-bit.</li>
+              <li class="collection-item">Modern CMake build-system support with no mandatory dependencies, only the standard C++ library.</li>
+            </ul>
+          </div>
+
+          <div class="row">
+            <h4>Benchmarks</h4>
+            <p>Benchmarks on a Windows 10 (64-bit) x86 desktop computer with 12th Gen Intel(R) Core(TM) i9-12900KS 3.40 - 5.50 GHz and 64 GB of RAM (29.05.2022).
+              Benchmarked using google benchmark and the <a href="https://github.com/fpcap/fpcap-benchmark">fpcap-benchmark</a> project. 
+              Comparison of the number of iterations reading the same capture file over and over using different techniques and libraries.
+            </p>
+            <img src="images/fpcap_benchmark_pcap.svg">
+            <img src="images/fpcap_benchmark_pcapng.svg">
+            <img src="images/fpcap_benchmark_pcapng_zst.svg">
+          </div>
+
+          <div class="row">
+            <h4>Roadmap</h4>
+            <ul class="collection">
+              <li class="collection-item">Extended benchmark</li>
+              <li class="collection-item">Full support for all block types and options</li>
+              <li class="collection-item">Header-only version</li>
+              <li class="collection-item">Python adaptation</li>
+              <li class="collection-item">Extended CI/CD pipeline</li>
+              <li class="collection-item">Big Endian compatibility</li>
+            </ul>
+          </div>
         </div>
         <br><br>
       </div>
     </main>
   
-    <footer class="page-footer deep-orange">
+    <footer class="page-footer fpcap-orange">
       <div class="container">
         <div class="row">
           <div class="col l9 s12">
@@ -73,7 +110,7 @@
           <div class="col l3 s12">
             <h5 class="white-text">Connect</h5>
             <ul>
-              <li><a class="white-text" href="https://github.com/Schwaggot/mmpr">GitHub</a></li>
+              <li><a class="white-text" href="https://github.com/fpcap/fpcap">GitHub</a></li>
             </ul>
           </div>
         </div>
